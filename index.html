@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kurultai Labs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8FAFC;
+      --ink: #0F172A;
+      --ink-muted: #64748B;
+      --accent: #1866C4;
+      --accent-light: #3B9EFF;
+      --line: #E2E8F0;
+      --card-bg: #FFFFFF;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px;
+      flex: 1;
+    }
+    .logo {
+      font-family: 'Archivo', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .tagline {
+      color: var(--ink-muted);
+      font-size: 18px;
+      margin-bottom: 48px;
+    }
+    .lang-switch {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      display: flex;
+      gap: 8px;
+    }
+    .lang-switch button {
+      background: transparent;
+      border: 1px solid var(--line);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      color: var(--ink-muted);
+      transition: all 0.2s;
+    }
+    .lang-switch button:hover,
+    .lang-switch button.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+    .apps-title {
+      font-family: 'Archivo', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
+    }
+    .app-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    }
+    .app-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      flex-shrink: 0;
+    }
+    .app-info {
+      flex: 1;
+    }
+    .app-name {
+      font-family: 'Archivo', sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .app-desc {
+      color: var(--ink-muted);
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+    .app-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .app-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .app-links a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--ink-muted);
+      font-size: 14px;
+      border-top: 1px solid var(--line);
+    }
+    footer a {
+      color: var(--ink-muted);
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: var(--accent);
+    }
+    [data-lang] { display: none; }
+    [data-lang].active { display: block; }
+    .app-desc[data-lang].active { display: block; }
+    @media (max-width: 480px) {
+      .app-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .app-links {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="lang-switch">
+    <button id="btn-tr" class="active">TR</button>
+    <button id="btn-en">EN</button>
+  </div>
+
+  <div class="container">
+    <h1 class="logo">Kurultai Labs</h1>
+    <p class="tagline" data-lang="tr" class="active">Basit ve kullanisli mobil uygulamalar gelistiriyoruz.</p>
+    <p class="tagline" data-lang="en">We build simple and useful mobile apps.</p>
+
+    <h2 class="apps-title" data-lang="tr" class="active">Uygulamalar</h2>
+    <h2 class="apps-title" data-lang="en">Apps</h2>
+
+    <div class="app-card">
+      <img src="assets/autocare-icon.svg" alt="AutoCare OSS" class="app-icon">
+      <div class="app-info">
+        <h3 class="app-name">AutoCare OSS</h3>
+        <p class="app-desc" data-lang="tr" class="active">Arac bakim takip uygulamasi. Hesap yok, reklam yok, internet izni yok.</p>
+        <p class="app-desc" data-lang="en">Vehicle maintenance tracker. No account, no ads, no internet permission.</p>
+        <div class="app-links">
+          <a href="autocare/privacy/" data-lang="tr" class="active">Gizlilik politikasi</a>
+          <a href="autocare/privacy/" data-lang="en">Privacy policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <a href="mailto:kurultailabs@gmail.com">kurultailabs@gmail.com</a>
+  </footer>
+
+  <script>
+    const langs = ['tr', 'en'];
+    let currentLang = 'tr';
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        el.classList.toggle('active', el.dataset.lang === lang);
+      });
+      document.querySelectorAll('.lang-switch button').forEach(btn => {
+        btn.classList.toggle('active', btn.id === 'btn-' + lang);
+      });
+      document.documentElement.lang = lang;
+    }
+
+    document.getElementById('btn-tr').addEventListener('click', () => setLang('tr'));
+    document.getElementById('btn-en').addEventListener('click', () => setLang('en'));
+
+    // Detect browser language
+    const browserLang = navigator.language.substring(0, 2);
+    if (langs.includes(browserLang)) {
+      setLang(browserLang);
+    }
+  </script>
+</body>
+</html>
